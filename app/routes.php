@@ -89,3 +89,20 @@ Route::match(array('POST', 'GET'), 'setEntryToUser', 'EntryController@setEntryTo
 
 Route::post('setUser', 'UserController@set');
 
+//-------------------------------------------------------------------------------------------------------------------------
+//Group Study Tracker
+
+Route::group(array('prefix' => 'group_study/'), function(){
+
+	Route::match(array('POST', 'GET'), '/group_study/add_student', 'EntryController@add_student');
+
+	Route::match(array('POST', 'GET'), '/group_study/student_exists', 'EntryController@student_exists');
+
+	Route::match(array('POST', 'GET'), '/group_study/get_report', 'ReportController@get_report');
+
+	Route::match(array('POST', 'GET'), '/group_study/delete_student', 'EntryController@delete_student');
+
+	Route::match(array('POST', 'GET'), '/group_study/modify_student', 'EntryController@modify_student');
+	
+});
+
