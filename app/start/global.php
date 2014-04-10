@@ -21,7 +21,10 @@ ClassLoader::addDirectories(array(
 
 ));
 
+//register validators here
 Validator::extend('time', 'TimeValidation@validateTime');
+
+
 // Validator::resolver(function($translator, $data, $rules, $messages)
 // {
 //     return new TimeValidation($translator, $data, $rules, $messages);

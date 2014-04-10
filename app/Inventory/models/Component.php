@@ -9,7 +9,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class Component extends Eloquent{
 
 	protected $table = 'inventory_component';
-	protected $fillable = array('equipment_id', 'model', 'type', 'storage', 'memory');
+	protected $fillable = array('equipment_id', 'model', 'type', 'storage', 'memory', 'location');
 	protected $guarded = array('id');
 	public $timestamps = false;
 
@@ -23,5 +23,16 @@ class Component extends Eloquent{
 		return $this -> belongsTo('Equipment');
 	}
 
+	private static $rules = array(
+		'equipment_id' => 'numeric'
+		'location' =>	'required|alpha_num'
+		'model' =>	'required|alpha_num'
+		'type' =>	'required|alpha'
+		'storage' =>	'alpha_num'
+		'memory' =>    'alpha_num'
+		);
 
+	public static function validate($date){
+		return Validator::make($data, static::$rules);
+	}
 }

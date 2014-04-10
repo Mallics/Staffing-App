@@ -7,6 +7,7 @@ composer.lock
 .env.local.php
 .env.testing.php
 .env.php
+.env.testing.php
 .DS_Store
 Thumbs.db
 sftp-config.json
