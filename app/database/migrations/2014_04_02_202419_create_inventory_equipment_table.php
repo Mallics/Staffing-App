@@ -13,13 +13,14 @@ class CreateInventoryEquipmentTable extends Migration {
 	public function up()
 	{
 		Schema::create('inventory_equipment', function($table){
-			$table->integer('id')->unsigned();
+			$table->increments('id');
+			$table->string('serial_number');
+			$table->string('type');
 			$table->string('manufacturer');
 			$table->string('model') -> nullable();
 			$table->string('location');
 			$table->date('obtained')->nullable();
 			$table->date('warranty')->nullable();
-			$table->primary('id');
 		});
 	}
 
